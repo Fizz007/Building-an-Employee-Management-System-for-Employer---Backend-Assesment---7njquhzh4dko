@@ -37,8 +37,9 @@ const updateEmployee = async (req, res) => {
 
 const deleteEmployee = async (req, res) => {
   try {
-    User.deleteMany({salary:{gt:10000}});
-    res.status(201)})
+    User.deleteMany({salary:{gt:10000}})
+     .then((data)=> {
+          res.status(201)})
     //Write a code here for Deleting all the employees whose salary is greater than 10000
   } catch (err) {
     res.status(500).json({ error: 'Failed to delete employees' });
